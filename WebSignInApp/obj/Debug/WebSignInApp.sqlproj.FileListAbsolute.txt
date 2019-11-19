@@ -13,3 +13,7 @@ C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\bin\Debug\WebSignI
 C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\bin\Debug\WebSignInApp.pdb
 C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\WebSignInApp.dll
 C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\WebSignInApp.pdb
+C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\Model.xml
+C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\refactor.xml
+C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\postdeploy.sql
+C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\predeploy.sql

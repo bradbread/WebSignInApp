@@ -1,0 +1,26 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Class] (Table)
+       [dbo].[Enrollment] (Table)
+       [dbo].[Log] (Table)
+       [dbo].[Room] (Table)
+       [dbo].[Student] (Table)
+       [dbo].[Teacher] (Table)
+       [dbo].[FK_Enrollment_Student] (Foreign Key)
+       [dbo].[FK_Enrollment_Class] (Foreign Key)
+       [dbo].[FK_Log_Student] (Foreign Key)
+       [dbo].[FK_Log_Class] (Foreign Key)
+       [dbo].[FK_Log_Teacher] (Foreign Key)
+       [dbo].[FK_Log_Room] (Foreign Key)
+
+** Supporting actions

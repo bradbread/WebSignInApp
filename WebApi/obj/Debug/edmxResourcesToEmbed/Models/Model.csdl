@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="classId" />
+    </Key>
+    <Property Name="classId" Type="Int32" Nullable="false" />
+    <Property Name="day" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="startTime" Type="Time" Precision="7" />
+    <Property Name="endTime" Type="Time" Precision="7" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="labels" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Logs" Relationship="Self.FK_Log_Class" FromRole="Class" ToRole="Log" />
+    <NavigationProperty Name="Students" Relationship="Self.Enrollment" FromRole="Class" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="studentId" />
+      <PropertyRef Name="classId" />
+      <PropertyRef Name="time" />
+      <PropertyRef Name="actionPerformed" />
+      <PropertyRef Name="date" />
+    </Key>
+    <Property Name="studentId" Type="Int32" Nullable="false" />
+    <Property Name="classId" Type="Int32" Nullable="false" />
+    <Property Name="time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="actionPerformed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="teacherId" Type="Int32" Nullable="false" />
+    <Property Name="roomId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Class" Relationship="Self.FK_Log_Class" FromRole="Log" ToRole="Class" />
+    <NavigationProperty Name="Room" Relationship="Self.FK_Log_Room" FromRole="Log" ToRole="Room" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Log_Student" FromRole="Log" ToRole="Student" />
+    <NavigationProperty Name="Teacher" Relationship="Self.FK_Log_Teacher" FromRole="Log" ToRole="Teacher" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="roomId" />
+    </Key>
+    <Property Name="roomId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Logs" Relationship="Self.FK_Log_Room" FromRole="Room" ToRole="Log" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="studentId" />
+    </Key>
+    <Property Name="studentId" Type="Int32" Nullable="false" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="surName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Logs" Relationship="Self.FK_Log_Student" FromRole="Student" ToRole="Log" />
+    <NavigationProperty Name="Classes" Relationship="Self.Enrollment" FromRole="Student" ToRole="Class" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="teacherId" />
+    </Key>
+    <Property Name="teacherId" Type="Int32" Nullable="false" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Logs" Relationship="Self.FK_Log_Teacher" FromRole="Teacher" ToRole="Log" />
+  </EntityType>
+  <Association Name="FK_Log_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="1" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="classId" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="classId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_Room">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="roomId" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="roomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_Teacher">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+    <End Role="Log" Type="Self.Log" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="teacherId" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="teacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Enrollment">
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Classes" EntityType="Self.Class" />
+    <EntitySet Name="Logs" EntityType="Self.Log" />
+    <EntitySet Name="Rooms" EntityType="Self.Room" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+    <AssociationSet Name="FK_Log_Class" Association="Self.FK_Log_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Log" EntitySet="Logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_Room" Association="Self.FK_Log_Room">
+      <End Role="Room" EntitySet="Rooms" />
+      <End Role="Log" EntitySet="Logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_Student" Association="Self.FK_Log_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Log" EntitySet="Logs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_Teacher" Association="Self.FK_Log_Teacher">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="Log" EntitySet="Logs" />
+    </AssociationSet>
+    <AssociationSet Name="Enrollment" Association="Self.Enrollment">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

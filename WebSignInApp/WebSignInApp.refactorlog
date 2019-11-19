@@ -84,4 +84,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="roomId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="1a1be81c-ebb1-47c7-b465-66ec9be39efd" ChangeDateTime="11/19/2019 21:45:55">
+    <Property Name="ElementName" Value="[dbo].[Log].[currentTime]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Log]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Time" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1150a31e-a44f-4b62-bf66-85da7b03dcf5" ChangeDateTime="11/19/2019 21:46:00">
+    <Property Name="ElementName" Value="[dbo].[Log].[Time]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Log]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="time" />
+  </Operation>
 </Operations>
