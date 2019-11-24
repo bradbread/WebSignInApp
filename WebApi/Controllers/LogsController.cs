@@ -8,11 +8,14 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using WebApi.Models;
 
 namespace WebApi.Controllers
 {
+    //change this to the url of your website might need to somehow put this in it's own thing
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class LogsController : ApiController
     {
         private Entities db = new Entities();
@@ -23,6 +26,7 @@ namespace WebApi.Controllers
             return db.Logs;
         }
 
+        /*
         // GET: api/Logs/5
         [ResponseType(typeof(Log))]
         public async Task<IHttpActionResult> GetLog(int id)
@@ -34,6 +38,18 @@ namespace WebApi.Controllers
             }
 
             return Ok(log);
+        }
+        */
+
+        public IQueryable<Log> GetLogs(int id)
+        {
+            var x = from log in db.Logs
+                    join student in db.Students
+                    on log.studentId equals student.studentId
+                    where log.classId == id
+                    select log;
+
+            return x;
         }
 
         // PUT: api/Logs/5

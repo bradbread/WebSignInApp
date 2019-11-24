@@ -10,9 +10,13 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using WebApi.Models;
+//cross orgin requests
+using System.Web.Http.Cors;
 
 namespace WebApi.Controllers
 {
+    //change this to the url of your website
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class ClassesController : ApiController
     {
         private Entities db = new Entities();
