@@ -43,6 +43,7 @@ namespace WebApi.Controllers
 
         public IQueryable<Log> GetLogs(int id)
         {
+            //change maybe later
             var x = from log in db.Logs
                     join student in db.Students
                     on log.studentId equals student.studentId

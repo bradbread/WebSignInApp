@@ -21,6 +21,8 @@ namespace WebApi.Models
         public int teacherId { get; set; }
         public string roomId { get; set; }
         public System.DateTime date { get; set; }
+        public string studentFName { get; set; }
+        public string studentSurname { get; set; }
     
         public virtual Class Class { get; set; }
         public virtual Room Room { get; set; }

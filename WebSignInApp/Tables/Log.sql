@@ -7,6 +7,8 @@
     [teacherId] INT NOT NULL, 
     [roomId] NVARCHAR(50) NOT NULL, 
     [date] DATE NOT NULL, 
+    [studentFName] NVARCHAR(50) NOT NULL, 
+    [studentSurname] NVARCHAR(50) NOT NULL, 
     PRIMARY KEY ([date], [actionPerformed], [time], [classId], [studentId]),
 	CONSTRAINT [FK_Log_Student] FOREIGN KEY ([studentId]) REFERENCES [Student]([studentId]),
 	CONSTRAINT [FK_Log_Class] FOREIGN KEY ([classId]) REFERENCES [Class]([classId]),

@@ -32,6 +32,8 @@
     <NavigationProperty Name="Room" Relationship="Self.FK_Log_Room" FromRole="Log" ToRole="Room" />
     <NavigationProperty Name="Student" Relationship="Self.FK_Log_Student" FromRole="Log" ToRole="Student" />
     <NavigationProperty Name="Teacher" Relationship="Self.FK_Log_Teacher" FromRole="Log" ToRole="Teacher" />
+    <Property Name="studentFName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="studentSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Room">
     <Key>

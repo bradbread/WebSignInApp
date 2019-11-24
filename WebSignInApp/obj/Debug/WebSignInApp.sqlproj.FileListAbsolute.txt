@@ -17,3 +17,9 @@ C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\Model.xm
 C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\refactor.xml
 C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\postdeploy.sql
 C:\Users\102673815\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\predeploy.sql
+C:\Users\Bradley\Documents\GitHub\WebSignInApp\WebSignInApp\bin\Debug\WebSignInApp.dacpac
+C:\Users\Bradley\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\WebSignInApp.sqlprojAssemblyReference.cache
+C:\Users\Bradley\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\WebSignInApp.dll
+C:\Users\Bradley\Documents\GitHub\WebSignInApp\WebSignInApp\obj\Debug\WebSignInApp.pdb
+C:\Users\Bradley\Documents\GitHub\WebSignInApp\WebSignInApp\bin\Debug\WebSignInApp.dll
+C:\Users\Bradley\Documents\GitHub\WebSignInApp\WebSignInApp\bin\Debug\WebSignInApp.pdb

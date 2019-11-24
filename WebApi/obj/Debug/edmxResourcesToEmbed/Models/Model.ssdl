@@ -34,6 +34,8 @@
     <Property Name="teacherId" Type="int" Nullable="false" />
     <Property Name="roomId" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="studentFName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="studentSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Room">
     <Key>

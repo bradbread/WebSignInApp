@@ -16,6 +16,8 @@
     <EntitySetMapping Name="Logs">
       <EntityTypeMapping TypeName="Model.Log">
         <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="studentSurname" ColumnName="studentSurname" />
+          <ScalarProperty Name="studentFName" ColumnName="studentFName" />
           <ScalarProperty Name="studentId" ColumnName="studentId" />
           <ScalarProperty Name="classId" ColumnName="classId" />
           <ScalarProperty Name="time" ColumnName="time" />

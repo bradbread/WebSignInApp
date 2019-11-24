@@ -38,9 +38,9 @@ VALUES (13, 1);
 INSERT INTO Enrollment (classId, studentId)
 VALUES (13, 2);
 
-INSERT INTO [Log] (studentId, classId, [time], actionPerformed, teacherId, roomId, [date])
-VALUES (1, 12, '09:30:52', 'Signed In', 10, 'AB500', '2019-11-19');
-INSERT INTO [Log] (studentId, classId, [time], actionPerformed, teacherId, roomId, [date])
-VALUES (1, 13, '09:35:52', 'Signed In', 10, 'AB500', '2019-11-21');
-INSERT INTO [Log] (studentId, classId, [time], actionPerformed, teacherId, roomId, [date])
-VALUES (2, 13, '10:35:52', 'Signed In', 10, 'AB500', '2019-11-21');
+INSERT INTO [Log] (studentId, classId, [time], actionPerformed, teacherId, roomId, [date], studentFName, studentSurname)
+VALUES (1, 12, '09:30:52', 'Signed In', 10, 'AB500', '2019-11-19', 'Test', 'Man');
+INSERT INTO [Log] (studentId, classId, [time], actionPerformed, teacherId, roomId, [date], studentFName, studentSurname)
+VALUES (1, 13, '09:35:52', 'Signed In', 10, 'AB500', '2019-11-21', 'Test', 'Man');
+INSERT INTO [Log] (studentId, classId, [time], actionPerformed, teacherId, roomId, [date], studentFName, studentSurname)
+VALUES (2, 13, '10:35:52', 'Signed In', 10, 'AB500', '2019-11-21', 'Pepis', 'Man');

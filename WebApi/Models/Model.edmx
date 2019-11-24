@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Class">
           <Key>
             <PropertyRef Name="classId" />
@@ -39,6 +39,8 @@
           <Property Name="teacherId" Type="int" Nullable="false" />
           <Property Name="roomId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="studentFName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="studentSurname" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -166,8 +168,7 @@
             <End Role="Log" EntitySet="Log" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -203,6 +204,8 @@
           <NavigationProperty Name="Room" Relationship="Self.FK_Log_Room" FromRole="Log" ToRole="Room" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Log_Student" FromRole="Log" ToRole="Student" />
           <NavigationProperty Name="Teacher" Relationship="Self.FK_Log_Teacher" FromRole="Log" ToRole="Teacher" />
+          <Property Name="studentFName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="studentSurname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -330,6 +333,8 @@
           <EntitySetMapping Name="Logs">
             <EntityTypeMapping TypeName="Model.Log">
               <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="studentSurname" ColumnName="studentSurname" />
+                <ScalarProperty Name="studentFName" ColumnName="studentFName" />
                 <ScalarProperty Name="studentId" ColumnName="studentId" />
                 <ScalarProperty Name="classId" ColumnName="classId" />
                 <ScalarProperty Name="time" ColumnName="time" />
