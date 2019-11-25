@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Newtonsoft.Json.Serialization;
+using WebApiAuthenticate.Filters;
 
 namespace WebApi
 {

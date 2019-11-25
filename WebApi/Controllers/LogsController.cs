@@ -11,20 +11,23 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using WebApi.Models;
+using WebApiAuthenticate.Filters;
 
 namespace WebApi.Controllers
 {
     //change this to the url of your website might need to somehow put this in it's own thing
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    
     public class LogsController : ApiController
     {
         private Entities db = new Entities();
-
+        /*
         // GET: api/Logs
         public IQueryable<Log> GetLogs()
         {
             return db.Logs;
         }
+        */
 
         /*
         // GET: api/Logs/5
@@ -40,19 +43,27 @@ namespace WebApi.Controllers
             return Ok(log);
         }
         */
-
-        public IQueryable<Log> GetLogs(int id)
+        public IQueryable<Log> GetLogs(int id, string secret)
         {
-            //change maybe later
-            var x = from log in db.Logs
-                    join student in db.Students
-                    on log.studentId equals student.studentId
-                    where log.classId == id
-                    select log;
+            if (secret == "table3")
+            {
+                var x = from log in db.Logs
+                        join student in db.Students
+                        on log.studentId equals student.studentId
+                        where log.classId == id
+                        select log;
 
-            return x;
+                return x;
+            }
+
+            else
+            {
+                //change this later probs
+                return null;
+            }
+
         }
-
+        /*
         // PUT: api/Logs/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutLog(int id, Log log)
@@ -146,6 +157,6 @@ namespace WebApi.Controllers
         private bool LogExists(int id)
         {
             return db.Logs.Count(e => e.studentId == id) > 0;
-        }
+        } */
     }
 }

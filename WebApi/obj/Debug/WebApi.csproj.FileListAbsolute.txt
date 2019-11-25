@@ -173,3 +173,6 @@ C:\Users\Bradley\Documents\GitHub\WebSignInApp\WebApi\obj\Debug\WebApi.pdb
 C:\Users\Bradley\Documents\GitHub\WebSignInApp\WebApi\bin\System.Web.Cors.dll
 C:\Users\Bradley\Documents\GitHub\WebSignInApp\WebApi\bin\System.Web.Http.Cors.dll
 C:\Users\Bradley\Documents\GitHub\WebSignInApp\WebApi\bin\System.Web.Http.Cors.xml
+C:\Users\102673815\Documents\GitHub\WebSignInApp\WebApi\bin\System.Web.Cors.dll
+C:\Users\102673815\Documents\GitHub\WebSignInApp\WebApi\bin\System.Web.Http.Cors.dll
+C:\Users\102673815\Documents\GitHub\WebSignInApp\WebApi\bin\System.Web.Http.Cors.xml

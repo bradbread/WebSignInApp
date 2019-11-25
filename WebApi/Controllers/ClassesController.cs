@@ -12,34 +12,44 @@ using System.Web.Http.Description;
 using WebApi.Models;
 //cross orgin requests
 using System.Web.Http.Cors;
+//authentication
+using WebApiAuthenticate.Filters;
 
 namespace WebApi.Controllers
 {
+    
     //change this to the url of your website
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    
     public class ClassesController : ApiController
     {
         private Entities db = new Entities();
 
         // GET: api/Classes
-        public IQueryable<Class> GetClasses()
+        public IQueryable<Class> GetClasses(string secret)
         {
-            return db.Classes;
+            if (secret == "table3")
+                return db.Classes;
+            //change this probs
+            else
+                return null;
         }
 
+        /*
         // GET: api/Classes/5
         [ResponseType(typeof(Class))]
         public async Task<IHttpActionResult> GetClass(int id)
         {
-            Class @class = await db.Classes.FindAsync(id);
-            if (@class == null)
-            {
-                return NotFound();
-            }
 
-            return Ok(@class);
+                Class @class = await db.Classes.FindAsync(id);
+                if (@class == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(@class);
         }
-
+        
         // PUT: api/Classes/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutClass(int id, Class @class)
@@ -74,7 +84,7 @@ namespace WebApi.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
+        
         // POST: api/Classes
         [ResponseType(typeof(Class))]
         public async Task<IHttpActionResult> PostClass(Class @class)
@@ -133,6 +143,6 @@ namespace WebApi.Controllers
         private bool ClassExists(int id)
         {
             return db.Classes.Count(e => e.classId == id) > 0;
-        }
-    }
+        } */
+    } 
 }
